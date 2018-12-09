@@ -4,22 +4,38 @@
 int main()
 {
     CFGNode * tokenList = NULL;
+    CFGNode * currentToken = NULL;
+    char* token1 = "Tk";
+    char* token2 = "Tk2";
+    char* subs1[] = {"hel", "hit", "yo"};
+    char* subs2[] = {"hel2", "hit3", "2", "nonyo"};
 
-    char* token = "Tk";
-    char* subs[] = {"hel", "hit", ""};
+    appendList(&tokenList, token1, subs1, 3);
+    appendList(&tokenList, token2, subs2, 4);
 
-    appendList(&tokenList, token, subs, 2);
-
-    printf("Token: %s\n", tokenList->token);
-
-    printf("Substitutes: ");
-    for (int i = 0; i < tokenList->num_of_substitutes; i++)
+    currentToken = tokenList;
+    while (currentToken != NULL)
     {
-        printf("%s", tokenList->substitutes[i]);
-        if (i != tokenList->num_of_substitutes - 1)
-            printf(", ");
+        printf("Token: %s\n", currentToken->token);
+
+        printf("Substitutes: ");
+        for (int i = 0; i < currentToken->num_of_substitutes; i++)
+        {
+            printf("%s", currentToken->substitutes[i]);
+            if (i != currentToken->num_of_substitutes - 1)
+                printf(", ");
+        }
+        printf("\n");
+        currentToken = currentToken -> next;
     }
-    printf("\n");
+    CFGNode * nulltest = NULL;
+
+    CFGNode * found = findByToken(&nulltest, "Tk3");
+    if (found != NULL) printf("%s\n", found->substitutes[0]);
+    else printf("Not found\n");
+
+    destroyList(&tokenList);
+
 
     return 0;
 }

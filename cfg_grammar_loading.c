@@ -7,9 +7,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define SUB_BUFFER 256
+#define LINE_BUFFER 256
+
 void parseLine(const char* src, CFGNode** head_ref)
 {
-    char* bufor[255];
+    char* bufor[SUB_BUFFER];
     char* line = malloc(strlen(src) + 1);
     strcpy(line, src);
     int cnt = 0;
@@ -36,4 +39,27 @@ void parseLine(const char* src, CFGNode** head_ref)
     }
 
     appendList(head_ref, token, substitutes, cnt);
+}
+
+CFGNode* loadGrammar(const char* fileName)
+{
+    FILE * fp;
+    char line[LINE_BUFFER];
+    CFGNode* grammarList = NULL;
+
+    fp = fopen(fileName, "r");
+    if (fp == NULL)
+    {
+        printf("no file\n");
+        return NULL;
+    }
+
+    while (fgets(line, sizeof line, fp) != NULL)
+    {
+        strtok(line, "\n");
+        printf("%s\n", line);
+        parseLine(line, &grammarList);
+    }
+    fclose(fp);
+    return grammarList;
 }

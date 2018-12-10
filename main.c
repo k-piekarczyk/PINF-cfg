@@ -8,16 +8,11 @@
 int main()
 {
     CFGNode * tokenList = NULL;
-    CFGNode * current = NULL;
-    char* token2 = "N";
-    char* subs2[] = {"hel", "hit", "siedem", "krowa"};
     char* start = "Jestem Vb i N Vb";
     char* wynik;
 
     srand((unsigned int) time(0));
-
-    parseLine("Vb>stuff|walka|other stuff|damn,|how did it get here?", &tokenList);
-    appendList(&tokenList, token2, subs2, 4);
+    tokenList = loadGrammar("test.grammar");
 
     wynik = expand(start, &tokenList);
     printf("Start: %s\n", start);

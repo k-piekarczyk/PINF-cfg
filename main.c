@@ -10,8 +10,8 @@ int main()
     CFGNode * current = NULL;
     char* token1 = "Vb";
     char* token2 = "N";
-    char* subs1[] = {"hel", "hit", "yo"};
-    char* subs2[] = {"hel2", "hit3", "2", "nonyo"};
+    char* subs1[] = {"ide", "bic", "walczyc"};
+    char* subs2[] = {"hel", "hit", "siedem", "krowa"};
     char* start = "Jestem Vb i N Vb";
     char* wynik;
 

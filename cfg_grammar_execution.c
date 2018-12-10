@@ -2,7 +2,7 @@
 // Created by Krzysztof Piekarczyk on 2018-12-10.
 //
 
-#include "cfg_string_manipulation.h"
+#include "cfg_grammar_execution.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

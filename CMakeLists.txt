@@ -3,4 +3,4 @@ project(cfg C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(cfg main.c cfg_linked_list.c cfg_linked_list.h cfg_string_manipulation.c cfg_string_manipulation.h)
+add_executable(cfg main.c cfg_linked_list.c cfg_linked_list.h cfg_string_manipulation.c cfg_string_manipulation.h cfg_file_handling.cpp cfg_file_handling.h)

@@ -87,7 +87,6 @@ CMakeCache.txt
 CMakeFiles
 CMakeScripts
 Testing
-Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
@@ -129,5 +128,8 @@ Temporary Items
 .apdisk
 .idea
 CMakeLists.txt
+*.o
+*.out
+*.exe
 
 # End of https://www.gitignore.io/api/code,cmake,clion,macos

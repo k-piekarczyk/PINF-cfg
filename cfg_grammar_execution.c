@@ -14,7 +14,7 @@ char* replaceToken(char* target, CFGNode* tokenNode)
     char* dest = malloc(strlen(target) - strlen(tokenNode->token) + strlen(replacement) + 1);
     char* ptr;
 
-    strcpy(dest, target);
+    memmove(dest, target, strlen(target)+1);
 
     ptr = strstr(dest, tokenNode->token);
     if (ptr)

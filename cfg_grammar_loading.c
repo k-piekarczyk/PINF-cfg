@@ -50,14 +50,13 @@ CFGNode* loadGrammar(const char* fileName)
     fp = fopen(fileName, "r");
     if (fp == NULL)
     {
-        printf("no file\n");
+        printf("No file.\n");
         return NULL;
     }
 
     while (fgets(line, sizeof line, fp) != NULL)
     {
         strtok(line, "\n");
-        printf("%s\n", line);
         parseLine(line, &grammarList);
     }
     fclose(fp);

@@ -50,8 +50,8 @@ CFGNode* loadGrammar(const char* fileName)
     fp = fopen(fileName, "r");
     if (fp == NULL)
     {
-        printf("No file.\n");
-        return NULL;
+        printf("No file '%s'.\n", fileName);
+        exit(EXIT_FAILURE);
     }
 
     while (fgets(line, sizeof line, fp) != NULL)

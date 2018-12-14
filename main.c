@@ -14,7 +14,7 @@ int main(int argc, char** argv)
         exit(EXIT_FAILURE);
     }
 
-    srand((unsigned int) time(0));
+    srand((unsigned int) time(NULL));
     CFGNode * tokenList = NULL;
     char* fileName = argv[1];
     char* start = argc > 2 ? argv[2] : "S.";
@@ -29,9 +29,14 @@ int main(int argc, char** argv)
         exit(EXIT_FAILURE);
     }
 
-    wynik = expand(start, &tokenList);
     printf("Start: %s\n", start);
-    printf("Wynik: %s\n", wynik);
+    for (int i = 0; i < 20; i++)
+    {
+        wynik = expand(start, &tokenList);
+        wynik[0] -= 32;
+        printf("Wynik %i: %s\n", i+1, wynik);
+    }
+    
 
     destroyList(&tokenList);
     exit(EXIT_SUCCESS);

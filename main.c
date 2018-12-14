@@ -17,7 +17,7 @@ int main(int argc, char** argv)
     srand((unsigned int) time(0));
     CFGNode * tokenList = NULL;
     char* fileName = argv[1];
-    char* start = argc > 2 ? argv[2] : "S";
+    char* start = argc > 2 ? argv[2] : "S.";
     char* wynik;
 
 
